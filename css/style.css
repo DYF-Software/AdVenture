@@ -33,6 +33,13 @@
      box-sizing: border-box !important;
 }
 
+.header {
+     border-bottom: 2px solid black; /* Sadece alt kısımda siyah çerçeve */
+     padding-bottom: 10px; /* Alt kısmı biraz boşluk bırakmak için */
+ }
+ 
+ 
+
 .container {
      max-width: 1170px;
 }
