@@ -115,7 +115,7 @@ File Name: responsive.css
     .slider_main {
         padding-top: 26%;
     }
-    .banner {
+    .banner_img {
         padding-right: 0px;
     }
     #carouselExampleIndicators .carousel-control-prev {
@@ -220,7 +220,7 @@ File Name: responsive.css
         line-height: 80px;
         font-size: 60px;
     }
-    .banner {
+    .banner_img {
         padding-right: 0px;
         margin-top: 20px;
     }
@@ -266,9 +266,9 @@ File Name: responsive.css
         padding-left: 0px;
     }
     .testimonial .titlepage {
-        padding-bottom: [0;
-        ]
+        padding-bottom: 0;
     }
+    
     .testimonial {
         padding: 90px 0 10px 0;
     }

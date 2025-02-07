@@ -48,6 +48,13 @@ html {
      scroll-behavior: smooth;
 }
 
+.about .titlepage h2,
+.about .titlepage p {
+    color: #000000 !important;
+}
+
+
+
 body {
      color: #666666;
      font-size: 14px;
