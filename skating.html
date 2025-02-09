@@ -1,43 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <!-- basic -->
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <!-- mobile metas -->
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-      <!-- site metas -->
       <title>AdVenture</title>
-      <meta name="keywords" content="">
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <!-- bootstrap css -->
       <link rel="stylesheet" href="css/bootstrap.min.css">
-      <!-- style css -->
       <link rel="stylesheet" href="css/style.css">
-      <!-- Responsive-->
       <link rel="stylesheet" href="css/responsive.css">
-      <!-- fevicon -->
       <link rel="icon" href="images/fevicon.png" type="image/gif" />
-      <!-- Tweaks for older IEs-->
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-      <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+      <style>
+         body {
+            overflow: hidden;
+         }
+         .game-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 600px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+            z-index: 1000;
+            overflow: hidden;
+         }
+         .game-modal iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+         }
+         .game-modal .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+         }
+         .class_box {
+            cursor: pointer;
+         }
+      </style>
    </head>
-   <!-- body -->
    <body class="main-layout inner_page">
-      <!-- loader  -->
-      <div class="loader_bg">
-         <div class="loader"><img src="images/loading.gif" alt="#"/></div>
-      </div>
-      <!-- end loader -->
-      <!-- header -->
       <div class="header">
          <div class="container-fluid">
             <div class="row d_flex">
-               <div class=" col-md-2 col-sm-3 col logo_section">
+               <div class="col-md-2 col-sm-3 col logo_section">
                   <div class="full">
                      <div class="center-desk">
                         <div class="logo">
@@ -48,158 +66,67 @@
                </div>
                <div class="col-md-8 col-sm-12">
                   <nav class="navigation navbar navbar-expand-md navbar-dark ">
-                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04">
                      <span class="navbar-toggler-icon"></span>
                      </button>
                      <div class="collapse navbar-collapse" id="navbarsExample04">
                         <ul class="navbar-nav mr-auto">
-                           <li class="nav-item">
-                              <a class="nav-link" href="index.html">Home</a>
-                           </li>
-                           <li class="nav-item">
-                              <a class="nav-link" href="about.html">About</a>
-                           </li>
-                           <li class="nav-item active">
-                              <a class="nav-link" href="skating.html">Our Products</a>
-                           </li>
-                           <li class="nav-item">
-                              <a class="nav-link" href="contact.html">Contact Us</a>
-                           </li>
+                           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                           <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                           <li class="nav-item active"><a class="nav-link" href="skating.html">Our Products</a></li>
+                           <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
                         </ul>
                      </div>
                   </nav>
                </div>
-               <div class="col-md-2">
-                  <ul class="email text_align_right">
-                     <li class="d_none"><a href="Javascript:void(0)"><i class="fa fa-user" aria-hidden="true"></i></a></li>
-                     <li class="d_none"> <a href="Javascript:void(0)"><i class="fa fa-search" style="cursor: pointer;" aria-hidden="true"></i></a> </li>
-                  </ul>
-               </div>
             </div>
          </div>
       </div>
-      <!-- end header inner -->
-      <!-- our class -->
       <div class="class">
          <div class="container">
             <div class="row">
-               <div class="col-md-12">
-                  <div class="titlepage text_align_center">
-                     <h2>Our Skating Class</h2>
-                     <p>There are many variations of passages of Lorem</p>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
                <div class="col-md-4 margi_bottom">
-                  <div class="class_box text_align_center">
+                  <div class="class_box text_align_center" onclick="openGameModal('https://dyf-software.github.io/WordSearch/')">
                      <i><img src="images/class1.png" alt="#"/></i>
-                     <h3>Skateboard</h3>
-                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alterationThere are many variations </p>
+                     <h3>Word Search</h3>
+                     <p>Experience the thrill of finding words in this engaging game.</p>
                   </div>
-                  <a class="read_more" href="Javascript:void(0)">Read More</a>
                </div>
                <div class="col-md-4 margi_bottom">
-                  <div class="class_box blue text_align_center">
+                  <div class="class_box blue text_align_center" onclick="openGameModal('https://dyf-software.github.io/ColorGame/')">
                      <i><img src="images/class2.png" alt="#"/></i>
-                     <h3>Skateboard</h3>
-                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alterationThere are many variations </p>
+                     <h3>Color Game</h3>
+                     <p>Test your color matching skills in this fun challenge.</p>
                   </div>
-                  <a class="read_more" href="Javascript:void(0)">Read More</a>
                </div>
                <div class="col-md-4 margi_bottom">
-                  <div class="class_box text_align_center">
+                  <div class="class_box text_align_center" onclick="openGameModal('https://dyf-software.github.io/kazi-kazan/')">
                      <i><img src="images/class3.png" alt="#"/></i>
-                     <h3>Skateboard</h3>
-                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alterationThere are many variations </p>
+                     <h3>Kazı Kazan</h3>
+                     <p>Try your luck with this exciting scratch card game.</p>
                   </div>
-                  <a class="read_more" href="Javascript:void(0)">Read More</a>
                </div>
             </div>
          </div>
       </div>
-      <!-- end our class -->
-      <!--  footer -->
+      <div class="game-modal" id="gameModal">
+         <button class="close-btn" onclick="closeGameModal()">X</button>
+         <iframe id="gameFrame" src="" allowfullscreen></iframe>
+      </div>
       <footer>
-         <div class="footer">
-            <div class="container">
-               <div class="row">
-                  <div class="col-md-4 ">
-                     <div class="infoma">
-                        <h3>Contact Us</h3>
-                        <ul class="conta">
-                           <li><i class="fa fa-map-marker" aria-hidden="true"></i>Locations 
-                           </li>
-                           <li><i class="fa fa-phone" aria-hidden="true"></i>Call +01 1234567890</li>
-                           <li> <i class="fa fa-envelope" aria-hidden="true"></i><a href="Javascript:void(0)"> demo@gmail.com</a></li>
-                        </ul>
-                     </div>
-                  </div>
-                  <div class="col-md-8">
-                     <div class="row border_left">
-                        <div class="col-md-12">
-                           <div class="infoma">
-                              <h3>Newsletter</h3>
-                              <form class="form_subscri">
-                                 <div class="row">
-                                    <div class="col-md-12">
-                                    </div>
-                                    <div class="col-md-4">
-                                       <input class="newsl" placeholder="Enter your email" type="text" name="Enter your email">
-                                    </div>
-                                    <div class="col-md-4">
-                                       <input class="newsl" placeholder="Enter your email" type="text" name="Enter your email">
-                                    </div>
-                                    <div class="col-md-4">
-                                       <button class="subsci_btn">subscribe</button>
-                                    </div>
-                                 </div>
-                              </form>
-                           </div>
-                        </div>
-                        <div class="col-md-9">
-                           <div class="infoma">
-                              <h3>Useful Link</h3>
-                              <ul class="fullink">
-                                 <li><a href="index.html">Home</a></li>
-                                 <li><a href="about.html">About</a></li>
-                                 <li><a href="skating.html">Skating</a></li>
-                                 <li><a href="shop.html">Shop</a></li>
-                                 <li><a href="contact.html">Contact Us</a></li>
-                              </ul>
-                           </div>
-                        </div>
-                        <div class="col-md-3">
-                           <div class="infoma text_align_left">
-                              <ul class="social_icon">
-                                 <li><a href="Javascript:void(0)"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                 <li><a href="Javascript:void(0)"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                 <li><a href="Javascript:void(0)"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
-                                 <li><a href="Javascript:void(0)"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                              </ul>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="copyright">
-               <div class="container">
-                  <div class="row">
-                  </div>
-               </div>
-            </div>
+         <div class="container text-center">
+            <p>&copy; 2024 AdVenture. All Rights Reserved.</p>
          </div>
       </footer>
-      <!-- end footer -->
-      <!-- Javascript files-->
-      <script src="js/jquery.min.js"></script>
-      <script src="js/bootstrap.bundle.min.js"></script>
-      <script src="js/jquery-3.0.0.min.js"></script>
-      <!-- sidebar -->
-      <script src="js/custom.js"></script>
       <script>
-         AOS.init();
+         function openGameModal(gameUrl) {
+             document.getElementById('gameFrame').src = gameUrl;
+             document.getElementById('gameModal').style.display = 'block';
+         }
+         function closeGameModal() {
+             document.getElementById('gameModal').style.display = 'none';
+             document.getElementById('gameFrame').src = '';
+         }
       </script>
    </body>
 </html>
