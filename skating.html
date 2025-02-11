@@ -8,11 +8,12 @@
       <link rel="stylesheet" href="css/bootstrap.min.css">
       <link rel="stylesheet" href="css/style.css">
       <link rel="stylesheet" href="css/responsive.css">
-      <link rel="icon" href="images/fevicon.png" type="image/gif" />
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
       <style>
+         /* Sadece yatay taşmaları gizle, dikey kaydırma aktif olsun */
          body {
-            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: auto;
          }
          .game-modal {
             display: none;
@@ -67,7 +68,7 @@
                <div class="col-md-8 col-sm-12">
                   <nav class="navigation navbar navbar-expand-md navbar-dark ">
                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04">
-                     <span class="navbar-toggler-icon"></span>
+                        <span class="navbar-toggler-icon"></span>
                      </button>
                      <div class="collapse navbar-collapse" id="navbarsExample04">
                         <ul class="navbar-nav mr-auto">
@@ -114,8 +115,72 @@
          <iframe id="gameFrame" src="" allowfullscreen></iframe>
       </div>
       <footer>
-         <div class="container text-center">
-            <p>&copy; 2024 AdVenture. All Rights Reserved.</p>
+         <div class="footer">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-4 ">
+                     <div class="infoma">
+                        <h3>Contact Us</h3>
+                        <ul class="conta">
+                           <li><i class="fa fa-map-marker" aria-hidden="true"></i>Locations</li>
+                           <li><i class="fa fa-phone" aria-hidden="true"></i>Call +90 531 982 31 65</li>
+                           <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="Javascript:void(0)"> dyf@gmail.com</a></li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="col-md-8">
+                     <div class="row border_left">
+                        <div class="col-md-12">
+                           <div class="infoma">
+                              <h3>Newsletter</h3>
+                              <form class="form_subscri">
+                                 <div class="row">
+                                    <div class="col-md-12"></div>
+                                    <div class="col-md-4">
+                                       <input class="newsl" placeholder="Enter your email" type="text" name="Enter your email">
+                                    </div>
+                                    <div class="col-md-4">
+                                       <input class="newsl" placeholder="Enter your email" type="text" name="Enter your email">
+                                    </div>
+                                    <div class="col-md-4">
+                                       <button class="subsci_btn">subscribe</button>
+                                    </div>
+                                 </div>
+                              </form>
+                           </div>
+                        </div>
+                        <div class="col-md-9">
+                           <div class="infoma">
+                              <h3>Useful Link</h3>
+                              <ul class="fullink">
+                                 <li><a href="index.html">Home</a></li>
+                                 <li><a href="about.html">About</a></li>
+                                 <li><a href="skating.html">Our Works</a></li>
+                                 <li><a href="contact.html">Contact Us</a></li>
+                              </ul>
+                           </div>
+                        </div>
+                        <div class="col-md-3">
+                           <div class="infoma text_align_left">
+                              <ul class="social_icon">
+                                 <li><a href="Javascript:void(0)"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                 <li><a href="Javascript:void(0)"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                 <li><a href="Javascript:void(0)"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                                 <li><a href="Javascript:void(0)"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="copyright">
+               <div class="container">
+                  <div class="row">
+                     <!-- İsteğe bağlı: Copyright içeriği buraya eklenebilir -->
+                  </div>
+               </div>
+            </div>
          </div>
       </footer>
       <script>
