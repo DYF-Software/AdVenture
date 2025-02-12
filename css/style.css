@@ -374,25 +374,51 @@ button {
      display: block;
  }
  
- /* ✅ Menü ve butonlar sağ tarafa yaslandı */
- .navbar-collapse {
+/* Butonları sağa yaslamak için gerekli düzenlemeler */
+/* Butonları sağa yaslamak için gerekli düzenlemeler */
+
+.row.d_flex {
      display: flex;
-     justify-content: flex-end; /* Menü ve butonlar sağda hizalanır */
+     justify-content: space-between; /* Logo sola, menü sağa yaslansın */
+     align-items: center;
      width: 100%;
- }
- .navigation.navbar {
-     float: right;
-     padding: 0;
-     justify-content: right;
 }
- /* Kullanıcı ve Arama ikonları sağda hizalı */
- ul.email {
+
+.navbar-nav {
+     margin-left: auto; /* Menü butonlarını sağa yasla */
+     display: flex;
+     justify-content: flex-end;
+     align-items: center;
+}
+
+.navigation.navbar {
+     display: flex;
+     justify-content: flex-end;
+     align-items: center;
+     width: 100%;
+}
+
+.navbar-collapse {
+     display: flex;
+     justify-content: flex-end;
+     align-items: center;
+     width: 100%;
+}
+
+ul.email {
      display: flex;
      align-items: center;
      justify-content: flex-end;
-     margin-left: 20px; /* Menü ve ikonlar arasında boşluk */
- }
- 
+     margin-left: auto;
+}
+
+.header .btn {
+     margin-left: auto; /* Butonları sağa yasla */
+     display: flex;
+     justify-content: flex-end;
+}
+
+
 
 .navigation.navbar-dark .navbar-nav .nav-link {
      padding: 15px 30px;
@@ -422,13 +448,6 @@ button {
      display: none;
 }
 
-ul.email {
-     padding-top: 1px;
-     display: flex;
-     align-items: center;
-     justify-content: flex-end;
-     flex-wrap: wrap;
-}
 
 ul.email li {
      padding: 0px 30px;
