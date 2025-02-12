@@ -200,13 +200,22 @@
       </footer>
       <script>
          function openGameModal(gameUrl) {
-             document.getElementById('gameFrame').src = gameUrl;
-             document.getElementById('gameModal').style.display = 'block';
+             // Kullanıcının mobil mi yoksa masaüstü mü olduğunu belirle
+             if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                 // Mobil cihazdaysa oyunu yeni bir sekmede aç
+                 window.open(gameUrl, '_blank');
+             } else {
+                 // Masaüstündeyse mevcut modal içinde aç
+                 document.getElementById('gameFrame').src = gameUrl;
+                 document.getElementById('gameModal').style.display = 'block';
+             }
          }
+     
          function closeGameModal() {
              document.getElementById('gameModal').style.display = 'none';
              document.getElementById('gameFrame').src = '';
          }
-      </script>
+     </script>
+     
    </body>
 </html>
