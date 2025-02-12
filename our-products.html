@@ -71,19 +71,19 @@
             </div>
          </div>
          <div class="col-md-8 col-sm-12">
-            <nav class="navigation navbar navbar-expand-md navbar-dark ">
-               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
-               <span class="navbar-toggler-icon"></span>
+            <nav class="navigation navbar navbar-expand-md navbar-dark">
+               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
                </button>
-               <div class="collapse navbar-collapse" id="navbarsExample04" style="display: flex; justify-content: flex-end;">
-                  <ul class="navbar-nav" style="margin-left: auto; display: flex; justify-content: flex-end; align-items: center;">
+               <div class="collapse navbar-collapse" id="navbarsExample04">
+                  <ul class="navbar-nav ml-auto">
                      <li class="nav-item">
                         <a class="nav-link" href="index.html">Home</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="about.html">About</a>
                      </li>
-                     <li class="nav-item active">
+                     <li class="nav-item">
                         <a class="nav-link" href="our-products.html">Our Products</a>
                      </li>
                      <li class="nav-item">
@@ -96,6 +96,30 @@
       </div>
    </div>
 </div>
+
+<!-- Gerekli Bootstrap ve jQuery Kütüphaneleri -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+   @media (max-width: 768px) {
+      .navbar-nav {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         width: 100%;
+         gap: 10px; /* Butonlar arası mesafe artırıldı */
+      }
+      .navbar-nav .nav-item {
+         width: 100%;
+      }
+      .navbar-nav .nav-link {
+         display: block;
+         padding: 10px;
+         width: 100%;
+      }
+   }
+</style>
       <div class="class">
          <div class="container">
             <div class="row">
