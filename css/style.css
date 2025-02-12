@@ -35,9 +35,7 @@
 
 .header {
      border-bottom: 2px solid black; /* Sadece alt kısımda siyah çerçeve */
-     padding-bottom: 10px; /* Alt kısmı biraz boşluk bırakmak için */
  }
- 
  
 
 .container {
@@ -217,6 +215,7 @@ button {
      margin: 0;
      padding: 0;
      cursor: pointer;
+     
 }
 
 .full {
@@ -345,18 +344,50 @@ button {
 /*-- header --*/
 
 .header {
-width: 100%;
-background:#fff0;
-height: 107px;
-padding: 27px 30px;
-position: absolute;
-z-index: 999;
-}
-
-.navigation.navbar {
+     width: 100%;
+     background: #fff; /* Arka plan rengi beyaz */
+     height: 120px; /* Header yüksekliği */
+     padding: 10px 30px; /* İç boşluk ayarlandı */
+     position: fixed;
+     top: 0;
+     left: 0;
+     z-index: 999;
+     display: flex;
+     align-items: center; /* Öğeleri dikeyde hizala */
+     justify-content: flex-end; /* Tüm öğeleri sola hizala */
+     border-bottom: 2px solid black; /* Alt çizgi */
+ }
+ 
+ /* ✅ Logo sol tarafa sabitlendi */
+ .header .logo {
+     margin-right: auto; /* Diğer öğeleri sağa itmek için */
+ }
+ 
+ .header .logo img {
+     max-height: 120px; /* Logo yüksekliği büyütüldü */
+     width: auto;
+     display: block;
+ }
+ 
+ /* ✅ Menü ve butonlar sağ tarafa yaslandı */
+ .navbar-collapse {
+     display: flex;
+     justify-content: flex-end; /* Menü ve butonlar sağda hizalanır */
+     width: 100%;
+ }
+ .navigation.navbar {
      float: right;
      padding: 0;
+     justify-content: right;
 }
+ /* Kullanıcı ve Arama ikonları sağda hizalı */
+ ul.email {
+     display: flex;
+     align-items: center;
+     justify-content: flex-end;
+     margin-left: 20px; /* Menü ve ikonlar arasında boşluk */
+ }
+ 
 
 .navigation.navbar-dark .navbar-nav .nav-link {
      padding: 15px 30px;
