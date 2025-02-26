@@ -236,22 +236,37 @@
          </div>
       </footer>
       <script>
-         function openGameModal(gameUrl) {
-             // Kullanıcının mobil mi yoksa masaüstü mü olduğunu belirle
-             if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-                 // Mobil cihazdaysa oyunu yeni bir sekmede aç
-                 window.open(gameUrl, '_blank');
-             } else {
-                 // Masaüstündeyse mevcut modal içinde aç
-                 document.getElementById('gameFrame').src = gameUrl;
-                 document.getElementById('gameModal').style.display = 'block';
-             }
-         }
-     
-         function closeGameModal() {
-             document.getElementById('gameModal').style.display = 'none';
-             document.getElementById('gameFrame').src = '';
-         }
+     function openGameModal(gameUrl) {
+    // Kullanıcının mobil mi yoksa masaüstü mü olduğunu belirle
+    const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    if (isMobile) {
+        // Mobil cihazlarda yeni sekmede aç
+        window.open(gameUrl, '_blank');
+    } else {
+        // Masaüstünde modalı aç
+        let modal = document.getElementById('gameModal');
+        let iframe = document.getElementById('gameFrame');
+
+        if (modal && iframe) {
+            iframe.src = gameUrl; // Oyunun URL'ini iframe içine yükle
+            modal.style.display = 'flex'; // Modalı aç
+            document.body.style.overflow = 'hidden'; // Arka plan kaymasını engelle
+        }
+    }
+}
+
+function closeGameModal() {
+    let modal = document.getElementById('gameModal');
+    let iframe = document.getElementById('gameFrame');
+
+    if (modal && iframe) {
+        modal.style.display = 'none'; // Modalı kapat
+        iframe.src = ''; // Iframe sıfırla (böylece oyun yeniden başladığında sıfırdan yüklenir)
+        document.body.style.overflow = 'auto'; // Arka plan kaymasını geri getir
+    }
+}
+
      </script>
      
    </body>
