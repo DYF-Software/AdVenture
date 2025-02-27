@@ -369,7 +369,7 @@ button {
  }
  
  .header .logo img {
-     max-height: 120px; /* Logo yüksekliği büyütüldü */
+     max-height: 170px; /* Logo yüksekliği büyütüldü */
      width: auto;
      display: block;
  }

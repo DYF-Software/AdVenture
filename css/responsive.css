@@ -198,6 +198,7 @@ File Name: responsive.css
         background-repeat: no-repeat;
         width: 48px;
         float: right;
+        margin-top:-100px;
     }
     .d_none {
         display: none;
@@ -336,6 +337,7 @@ File Name: responsive.css
         background: url(../images/menu_icon.png);
         background-repeat: no-repeat;
         width: 48px;
+        margin-top:-100px;
     }
     .d_none {
         display: none;
