@@ -372,6 +372,7 @@ button {
      max-height: 170px; /* Logo yüksekliği büyütüldü */
      width: auto;
      display: block;
+     margin-left: -40px;
  }
  
 /* Butonları sağa yaslamak için gerekli düzenlemeler */
