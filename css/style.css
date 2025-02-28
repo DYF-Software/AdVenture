@@ -373,6 +373,7 @@ button {
      width: auto;
      display: block;
      margin-left: -40px;
+     max-width:160%;
  }
  
 /* Butonları sağa yaslamak için gerekli düzenlemeler */
@@ -552,7 +553,7 @@ ul.email li i {
 #carouselExampleIndicators .carousel-control-next {
      right: inherit;
      left: 10%;
-     margin-top: 20px;
+     margin-top: -10px;
 }
 
 #carouselExampleIndicators .carousel-control-next:focus,

@@ -223,7 +223,7 @@ File Name: responsive.css
     }
     .banner_img {
         padding-right: 0px;
-        margin-top: 20px;
+        margin-top: -10px;
     }
     #carouselExampleIndicators .carousel-control-prev {
         left: 0%;
