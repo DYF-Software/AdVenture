@@ -543,7 +543,7 @@ ul.email li i {
      opacity: 1;
      border-radius: 50px;
      top: 100%;
-     margin-top:20px;
+     margin-top:-10px;
 }
 
 #carouselExampleIndicators .carousel-control-prev {
