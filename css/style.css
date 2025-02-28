@@ -553,7 +553,7 @@ ul.email li i {
 #carouselExampleIndicators .carousel-control-next {
      right: inherit;
      left: 10%;
-     margin-top: -10px;
+     margin-top: 20px;
 }
 
 #carouselExampleIndicators .carousel-control-next:focus,
