@@ -542,6 +542,7 @@ ul.email li i {
      opacity: 1;
      border-radius: 50px;
      top: 100%;
+     margin-top:20px;
 }
 
 #carouselExampleIndicators .carousel-control-prev {
@@ -551,6 +552,7 @@ ul.email li i {
 #carouselExampleIndicators .carousel-control-next {
      right: inherit;
      left: 10%;
+     margin-top: 20px;
 }
 
 #carouselExampleIndicators .carousel-control-next:focus,
