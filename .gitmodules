@@ -16,3 +16,6 @@
 [submodule "games/snake-game"]
 	path = games/snake-game
 	url = https://github.com/DYF-Software/snake-game.git
+[submodule "games/word-puzzle"]
+	path = games/word-puzzle
+	url = https://github.com/DYF-Software/WordPuzzle.git
