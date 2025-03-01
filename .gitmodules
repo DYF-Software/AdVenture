@@ -13,3 +13,6 @@
 [submodule "games/scratch-game"]
 	path = games/scratch-game
 	url = https://github.com/DYF-Software/kazi-kazan.git
+[submodule "games/snake-game"]
+	path = games/snake-game
+	url = https://github.com/DYF-Software/snake-game.git
