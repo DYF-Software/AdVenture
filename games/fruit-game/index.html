@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Ninja - Fullscreen & Responsive</title>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: black;
+        }
+        button:hover {
+        transform: scale(1.1);
+        box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+    }
+    
+    button:active {
+        transform: scale(1);
+        box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+    }
+
+    /* Fade-in Animasyonu */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    #startButton:hover, button:hover {
+        transform: scale(1.05);
+    }
+    #couponCode:hover {
+        background: #f4f4f4;
+    }
+    </style>
+</head>
+<body>
+<!-- Oyun Başlangıç Pop-up -->
+<!-- Başlangıç Pop-up'ı -->
+<div id="popup" style="display: flex; justify-content: center; align-items: center;
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; 
+    background: rgba(0, 0, 0, 0.8); color: white; font-size: 24px; 
+    flex-direction: column; text-align: center; animation: fadeIn 0.5s ease-in-out;">
+    
+    <h1 style="font-size: 36px; font-weight: bold; text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);">
+        🍉 Fruit Ninja 🍊
+    </h1>
+    <button id="startButton" style="padding: 15px 30px; font-size: 22px; 
+        cursor: pointer; background: linear-gradient(45deg, #ff8c00, #ff4500); 
+        color: white; border: none; border-radius: 10px; transition: 0.3s ease-in-out;">
+        Başla
+    </button>
+</div>
+
+<!-- 100 Puan Kazanınca Gösterilecek Kupon Pop-up'ı -->
+<div id="couponPopup" style="display: none; justify-content: center; align-items: center;
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.8);
+    color: white; font-size: 24px; flex-direction: column; text-align: center; animation: fadeIn 0.5s ease-in-out;">
+    
+    <h1 style="font-size: 32px; font-weight: bold; text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);">
+        🎉 Kupon Kazandınız! 🎉
+    </h1>
+    <p style="font-size: 20px; margin-bottom: 15px;">Aşağıdaki kodu kullanarak ödülünüzü alın:</p>
+    
+    <div id="couponCode" onclick="copyCoupon()" 
+        style="padding: 15px; background: white; color: black; font-size: 26px; 
+        font-weight: bold; border-radius: 8px; cursor: pointer; transition: 0.3s;">
+        DEMO100
+    </div>
+    
+    <p id="copyMessage" style="color: limegreen; font-size: 18px; margin-top: 10px; display: none;">
+        ✔ Kupon kopyalandı!
+    </p>
+    
+    <button onclick="location.reload()" style="padding: 12px 24px; font-size: 20px; cursor: pointer; 
+        margin-top: 20px; background: linear-gradient(45deg, #4caf50, #2e7d32); 
+        color: white; border: none; border-radius: 10px; transition: 0.3s ease-in-out;">
+        Tekrar Oyna
+    </button>
+</div>
+
+<script>
+    let game;
+    let score = 0;
+    let scoreText;
+
+    document.getElementById('startButton').addEventListener('click', function () {
+        document.getElementById('popup').style.display = 'none';
+        startGame();
+    });
+
+    function startGame() {
+        game = new Phaser.Game(config);
+    }
+
+    function updateScore() {
+        score += 10;
+        scoreText.setText(`Score: ${score}`);
+
+        if (score >= 100) {
+            document.getElementById('couponPopup').style.display = 'flex';
+            game.scene.scenes[0].scene.pause();  // Oyunu durdur
+        }
+    }
+    function copyCoupon() {
+        var couponText = document.getElementById("couponCode").innerText;
+        navigator.clipboard.writeText(couponText).then(function() {
+            document.getElementById("copyMessage").style.display = "block";
+        });
+    }
+</script>
+
+<script>
+    const config = {
+        type: Phaser.AUTO,
+        physics: {
+            default: 'arcade',
+            arcade: {
+                gravity: { y: 300 },
+                debug: false
+            }
+        },
+        scene: {
+            preload: preload,
+            create: create,
+            update: update
+        },
+        scale: {
+            mode: Phaser.Scale.RESIZE,
+            autoCenter: Phaser.Scale.CENTER_BOTH
+        }
+    };
+
+    let fruits;
+    let lastPointerPosition = null;
+    const fruitTypes = ['apple', 'orange', 'strawberry'];
+
+    function preload() {
+        this.load.image('background', 'assets/background.jpg');
+        this.load.image('apple', 'assets/apple.png');
+        this.load.image('orange', 'assets/orange.png');
+        this.load.image('strawberry', 'assets/strawberry.png');
+        this.load.image('apple_up', 'assets/apple_up.png');
+        this.load.image('apple_down', 'assets/apple_down.png');
+        this.load.image('apple_left', 'assets/apple_left.png');
+        this.load.image('apple_right', 'assets/apple_right.png');
+        this.load.image('orange_up', 'assets/orange_up.png');
+        this.load.image('orange_down', 'assets/orange_down.png');
+        this.load.image('orange_left', 'assets/orange_left.png');
+        this.load.image('orange_right', 'assets/orange_right.png');
+        this.load.image('strawberry_up', 'assets/strawberry_up.png');
+        this.load.image('strawberry_down', 'assets/strawberry_down.png');
+        this.load.image('strawberry_left', 'assets/strawberry_left.png');
+        this.load.image('strawberry_right', 'assets/strawberry_right.png');
+    }
+
+    function create() {
+        this.background = this.add.image(this.scale.width / 2, this.scale.height / 2, 'background')
+            .setDisplaySize(this.scale.width, this.scale.height);
+
+        scoreText = this.add.text(10, 10, 'Score: 0', { fontSize: '32px', fill: '#FFF' });
+
+        fruits = this.physics.add.group();
+
+        this.time.addEvent({
+            delay: 1000,
+            callback: spawnFruit,
+            callbackScope: this,
+            loop: true
+        });
+
+        this.input.on('pointermove', pointerMoveHandler, this);
+        this.scale.on('resize', resizeGame, this);
+    }
+
+    function update() {
+        fruits.children.iterate(fruit => {
+            if (fruit) {
+                fruit.angle += fruit.rotationSpeed;
+            }
+        });
+    }
+
+    function spawnFruit() {
+        const x = Phaser.Math.Between(50, this.scale.width - 50);
+        const type = Phaser.Utils.Array.GetRandom(fruitTypes);
+        const fruit = fruits.create(x, this.scale.height, type);
+        fruit.setVelocity(Phaser.Math.Between(-200, 200), Phaser.Math.Between(-this.scale.height * 0.8, -this.scale.height * 0.5));
+        fruit.setInteractive();
+        fruit.body.setAllowGravity(true);
+        fruit.type = type;
+        fruit.rotationSpeed = Phaser.Math.FloatBetween(2, 5);
+    }
+
+    function pointerMoveHandler(pointer) {
+        if (!lastPointerPosition) {
+            lastPointerPosition = { x: pointer.x, y: pointer.y };
+            return;
+        }
+
+        fruits.children.iterate(fruit => {
+            if (fruit && Phaser.Geom.Intersects.LineToRectangle(
+                new Phaser.Geom.Line(lastPointerPosition.x, lastPointerPosition.y, pointer.x, pointer.y),
+                fruit.getBounds()
+            )) {
+                sliceFruit(this, fruit, lastPointerPosition, pointer);
+            }
+        });
+
+        lastPointerPosition = { x: pointer.x, y: pointer.y };
+    }
+
+    function sliceFruit(scene, fruit, start, end) {
+        fruit.destroy();
+
+        let diffX = end.x - start.x;
+        let diffY = end.y - start.y;
+        let sliceDirection = Math.abs(diffX) > Math.abs(diffY) ? 'horizontal' : 'vertical';
+        let leftHalf, rightHalf;
+
+        if (sliceDirection === 'horizontal') {
+            leftHalf = scene.add.image(fruit.x, fruit.y, fruit.type + '_up');
+            rightHalf = scene.add.image(fruit.x, fruit.y, fruit.type + '_down');
+        } else {
+            leftHalf = scene.add.image(fruit.x, fruit.y, fruit.type + '_left');
+            rightHalf = scene.add.image(fruit.x, fruit.y, fruit.type + '_right');
+        }
+
+        scene.tweens.add({
+            targets: leftHalf,
+            x: leftHalf.x - (sliceDirection === 'horizontal' ? 50 : 0),
+            y: leftHalf.y - (sliceDirection === 'horizontal' ? 0 : 50),
+            angle: -45,
+            alpha: 0,
+            duration: 500,
+            onComplete: () => leftHalf.destroy()
+        });
+
+        scene.tweens.add({
+            targets: rightHalf,
+            x: rightHalf.x + (sliceDirection === 'horizontal' ? 50 : 0),
+            y: rightHalf.y + (sliceDirection === 'horizontal' ? 0 : 50),
+            angle: 45,
+            alpha: 0,
+            duration: 500,
+            onComplete: () => rightHalf.destroy()
+        });
+
+        updateScore();
+    }
+
+    function resizeGame(gameSize) {
+        let width = gameSize.width;
+        let height = gameSize.height;
+        game.scale.resize(width, height);
+        this.background.setPosition(width / 2, height / 2).setDisplaySize(width, height);
+        scoreText.setPosition(10, 10);
+    }
+</script>
+
+</body>
+</html>
