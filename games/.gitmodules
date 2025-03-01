@@ -1,0 +1,6 @@
+[submodule "scratch-game"]
+	path = scratch-game
+	url = https://github.com/DYF-Software/kazi-kazan.git
+[submodule "fruit-game"]
+	path = fruit-game
+	url = https://github.com/DYF-Software/fruit-ninja-fatih.git
