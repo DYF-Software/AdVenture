@@ -7,3 +7,6 @@
 [submodule "games/fruit-game"]
 	path = games/fruit-game
 	url = https://github.com/DYF-Software/fruit-ninja-fatih.git
+[submodule "games/memory-game"]
+	path = games/memory-game
+	url = https://github.com/DYF-Software/memory.git
