@@ -10,3 +10,6 @@
 [submodule "games/memory-game"]
 	path = games/memory-game
 	url = https://github.com/DYF-Software/memory.git
+[submodule "games/scratch-game"]
+	path = games/scratch-game
+	url = https://github.com/DYF-Software/kazi-kazan.git
