@@ -1,3 +1,6 @@
 [submodule "games/coffee-catch-game"]
 	path = games/coffee-catch-game
 	url = https://github.com/DYF-Software/coffee-catch-game.git
+[submodule "games/color-game"]
+	path = games/color-game
+	url = https://github.com/DYF-Software/ColorGame.git
