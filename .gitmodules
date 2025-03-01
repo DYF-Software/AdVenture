@@ -4,3 +4,6 @@
 [submodule "games/color-game"]
 	path = games/color-game
 	url = https://github.com/DYF-Software/ColorGame.git
+[submodule "games/fruit-game"]
+	path = games/fruit-game
+	url = https://github.com/DYF-Software/fruit-ninja-fatih.git
