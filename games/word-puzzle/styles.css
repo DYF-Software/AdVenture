@@ -1,0 +1,245 @@
+/* 🌟 GENEL STİLLEME */
+
+html, body {
+  
+    font-family: Arial, sans-serif;
+    background: url("background.png") no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Ana container: tam sayfa kullanımı */
+  .game-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Yukarıdan başlayacak */
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  
+  /* Başlık */
+  h1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 2.5vw;
+    text-align: center;
+    color: #333;
+  }
+  
+  /* Puzzle alanı */
+  #puzzle {
+    top: 15px;
+    position: relative;
+    width: 90vw;       /* Genişlik: ekranın %90’ı */
+    height: 60vh;      /* Yükseklik: ekranın %60’ı */
+    margin-bottom: 30px;
+    border: 5px solid rgba(0, 0, 0, 0.8);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
+    box-sizing: border-box;
+    border-radius: 10px;
+  }
+  
+  /* Puzzle hücreleri */
+  .cell {
+    position: absolute;
+    /* Genişlik, yükseklik, font boyutu JS'de ölçeklenecek */
+    width: 50px;
+    height: 50px;
+    border: 2px solid rgb(46, 66, 39);
+    background: rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: black;
+    box-sizing: border-box;
+  }
+  
+  .cell.hidden {
+    color: transparent;
+  }
+  
+  /* Harf çemberi (alttaki seçim alanı) */
+  #letter-container {
+    position: absolute;
+    /* Genişlik, yükseklik, konum JS'de belirlenecek */
+    border: 2px solid #999;
+    border-radius: 50%;
+    background: url("background.png") no-repeat center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+  }
+  
+  /* Harfler (çemberin içindeki) */
+  .letter {
+    position: absolute; 
+    background: #f39c12;
+    border-radius: 50%;
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.2s;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+  
+  .letter:hover {
+    transform: scale(1.1);
+  }
+  
+  .letter.selected {
+    background: #d35400;
+  }
+  
+  /* Çizgiler */
+  #line-container .line {
+    position: absolute;
+    height: 5px;
+    background-color: purple;
+    transform-origin: left center;
+  }
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+  }
+
+  .start-container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+    animation: fadeIn 1s ease;
+  }
+  
+  #start-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    background: #5563DE;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  #start-btn:hover {
+    background: #3a49b8;
+  }
+
+
+
+
+
+
+
+
+  /* Kazanma ekranı overlay */
+#win-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* İçerik kutusu */
+.win-container {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.5s ease;
+  width: 90%;
+  max-width: 400px;
+}
+
+/* Başlık ve mesaj */
+.win-container h2 {
+  color: #28a745;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.win-container p {
+  font-size: 16px;
+  color: #333;
+}
+
+/* Hediye kodu */
+#gift-code {
+  font-size: 28px;
+  font-weight: bold;
+  background: #ffcc00;
+  padding: 10px;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 15px 0;
+  letter-spacing: 2px;
+}
+
+/* Butonlar */
+#copy-btn, #close-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+#copy-btn {
+  background: #007bff;
+}
+
+#copy-btn:hover {
+  background: #0056b3;
+}
+
+#close-btn {
+  background: #dc3545;
+}
+
+#close-btn:hover {
+  background: #b52b39;
+}
+
+/* Fade-in animasyonu */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}

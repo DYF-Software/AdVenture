@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kelime Oyunu</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Kazanma Ekranı (Başlangıçta Gizli) -->
+<div id="win-screen" class="overlay" style="display: none;">
+  <div class="win-container">
+    <h2>🎉 Tebrikler! 🎉</h2>
+    <p>Oyun tamamlandı, özel kupon kodunuz:</p>
+    <h3 id="gift-code">HEDIYE100</h3>
+    <button id="copy-btn">🎁 Kodu Kopyala</button>
+    <button id="close-btn">❌ Kapat</button>
+  </div>
+</div>
+
+
+  <div id="start-screen" class="overlay">
+    <div class="start-container">
+      <h1>WORD SEARCH</h1>
+      <p>Reklamımızı oynayın ve ödüller kazanın!</p>
+      <button id="start-btn">Oyuna Başla</button>
+    </div>
+  </div>
+  <div class="game-main">
+
+    
+    <!-- Puzzle alanı -->
+    <div id="puzzle"></div>
+
+    <!-- Harf çemberi (altta) -->
+    <div id="letter-container">
+      <div id="line-container"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById("copy-btn").addEventListener("click", function() {
+        var giftCode = document.getElementById("gift-code").innerText;
+        navigator.clipboard.writeText(giftCode).then(function() {
+            alert("Kod başarıyla kopyalandı: " + giftCode);
+        }).catch(function(err) {
+            console.error("Kopyalama hatası: ", err);
+        });
+    });
+    </script>
+    
+</body>
+</html>
