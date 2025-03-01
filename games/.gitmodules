@@ -1,6 +1,31 @@
-[submodule "scratch-game"]
-	path = scratch-game
-	url = https://github.com/DYF-Software/kazi-kazan.git
-[submodule "fruit-game"]
-	path = fruit-game
-	url = https://github.com/DYF-Software/fruit-ninja-fatih.git
+[submodule "games/coffee-catch-game"]
+  path = games/coffee-catch-game
+  url = https://github.com/DYF-Software/coffee-catch-game.git
+
+[submodule "games/color-game"]
+  path = games/color-game
+  url = https://github.com/DYF-Software/ColorGame.git
+
+[submodule "games/fruit-game"]
+  path = games/fruit-game
+  url = https://github.com/DYF-Software/fruit-ninja-fatih.git
+
+[submodule "games/memory-game"]
+  path = games/memory-game
+  url = https://github.com/DYF-Software/memory.git
+
+[submodule "games/scratch-game"]
+  path = games/scratch-game
+  url = https://github.com/DYF-Software/kazi-kazan.git
+
+[submodule "games/snake-game"]
+  path = games/snake-game
+  url = https://github.com/DYF-Software/snake-game.git
+
+[submodule "games/word-puzzle"]
+  path = games/word-puzzle
+  url = https://github.com/DYF-Software/WordPuzzle.git
+
+[submodule "games/word-search"]
+  path = games/word-search
+  url = https://github.com/DYF-Software/WordSearch.git
